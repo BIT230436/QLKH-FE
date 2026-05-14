@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QLKH - Quản lý kho hàng</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Website quản lý kho hàng</h1>
+        <p>Quản lý danh mục sản phẩm, tồn kho và giá trị kho theo thời gian thực.</p>
+      </header>
+
+      <section class="panel stats" aria-label="Thống kê kho hàng">
+        <article>
+          <h2>Số mặt hàng</h2>
+          <p id="stat-total-products">0</p>
+        </article>
+        <article>
+          <h2>Tổng số lượng</h2>
+          <p id="stat-total-quantity">0</p>
+        </article>
+        <article>
+          <h2>Giá trị tồn kho</h2>
+          <p id="stat-total-value">0 ₫</p>
+        </article>
+        <article>
+          <h2>Sắp hết hàng (&lt;=5)</h2>
+          <p id="stat-low-stock">0</p>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Thêm sản phẩm">
+        <h2>Thêm sản phẩm</h2>
+        <form id="product-form">
+          <div class="grid">
+            <label>
+              Mã hàng
+              <input id="code" name="code" required maxlength="20" />
+            </label>
+            <label>
+              Tên hàng
+              <input id="name" name="name" required maxlength="100" />
+            </label>
+            <label>
+              Danh mục
+              <input id="category" name="category" required maxlength="50" />
+            </label>
+            <label>
+              Vị trí
+              <input id="location" name="location" required maxlength="50" />
+            </label>
+            <label>
+              Số lượng
+              <input id="quantity" name="quantity" type="number" min="0" value="0" required />
+            </label>
+            <label>
+              Đơn giá (₫)
+              <input id="price" name="price" type="number" min="0" value="0" required />
+            </label>
+          </div>
+          <button type="submit">Lưu sản phẩm</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-label="Danh sách kho hàng">
+        <div class="table-header">
+          <h2>Danh sách tồn kho</h2>
+          <label>
+            Tìm kiếm
+            <input id="search" placeholder="Nhập mã hoặc tên hàng" />
+          </label>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Mã hàng</th>
+                <th>Tên hàng</th>
+                <th>Danh mục</th>
+                <th>Vị trí</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Giá trị</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="inventory-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
